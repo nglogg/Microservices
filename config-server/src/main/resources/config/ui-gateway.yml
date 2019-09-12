@@ -1,0 +1,32 @@
+server:
+  port: 443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: qwerty
+    key-alias: test_key
+    key-store-type: PKCS12
+
+spring:
+  mvc:
+    favicon:
+      enabled: false
+  webflux:
+    static-path-pattern: /static/**
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+          include-expression: serviceId.endsWith('-UI')
+          url-expression: "'lb:http://'+serviceId"
+
+logging:
+  level:
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

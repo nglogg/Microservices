@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Microservices example</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+
+<body>
+<div class="container">
+    <img th:src="@{/static/images/logo.png}" class="mx-auto d-block"/>
+    <div th:if="${param.error}">
+        <h4 class="text-center" style="color:red">Invalid username and password.</h4>
+    </div>
+    <div th:if="${param.logout}">
+        <h4 class="text-center" style="color:blue">You have been logged out.</h4>
+    </div>
+    <form class="form-signin" th:action="@{/login}" method="post">
+        <p>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required
+                   autofocus>
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+</div>
+</body>
+</html>
