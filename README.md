@@ -63,8 +63,6 @@ and with *qwerty* password.
 ##### Distributed tracing
 ![-](/etc/images/sleuth_tracing.png)
 
-This schema is simple, see [here](https://spring.io/projects/spring-cloud-sleuth) for details.
-
 ### Building
 Depending of OS: `gradlew clean build` or `./gradlew clean build`.
 
